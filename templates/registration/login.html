@@ -1,0 +1,46 @@
+{% extends "base.html"  %}
+
+{% block title %}
+    Login - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <div>
+
+            <h4>Login</h4>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="alert alert-info">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+
+                <form method="post">
+
+                    {% csrf_token %}
+
+                    <table>
+                        <tr>
+                            <th><label for="id_username">Username:</label></th>
+                            <td><input type="text" name="username" id="id_username" autocapitalize="none" required /></td>
+                        </tr>
+                        <tr>
+                            <th><label for="id_password">Password:</label></th>
+                            <td><input type="password" name="password" id="id_password" required /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="hidden" name="next" value=""></td>
+                            <td><button type="submit" class="btn btn-primary">Submit</button></td>
+                        </tr>
+                        <tr>
+                            <td><input type="hidden" name="next" value=""></td>
+                            <td><a href="/password_reset/">Forgot Password?</a></td>
+                        </tr>
+                    </table>
+
+                </form>
+        </div>
+    </div>
+
+{% endblock %}

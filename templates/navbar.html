@@ -1,0 +1,91 @@
+<!-- Static navbar -->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+   <div class='container'>
+      <a class="navbar-brand" href="/">
+        My Commercial Driver
+      </a>
+      <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarCollapseLinks' aria-expanded='false' aria-label='Toggle Navigation'>
+        <span class='navbar-toggler-icon'></span>
+      </button>
+
+      <div class='collapse navbar-collapse' id='navbarCollapseLinks'>
+        <ul class='navbar-nav ml-auto'>
+
+            {% if user.is_authenticated %}
+
+            {% if user.is_superuser %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Admin
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                      {% if user.get_username == 'bclavinadmin' or user.get_username == 'bclavin' %}
+                          <a class="dropdown-item" href="#">Robotiffin</a>
+                          <a class="dropdown-item" href="#">(Mark)</a>
+                          <a class="dropdown-item" href="#">Gamebook (Emerick)</a>
+                          <a class="dropdown-item" href="#">Tally</a>
+                          <a class="dropdown-item" href="#">Indexes</a>
+                      {% endif   %}
+                          <a class="dropdown-item" href="#">SDP / Gamebook</a>
+                          <a class="dropdown-item" href="#">Manage Players</a>
+                          <a class="dropdown-item" href="#">Logs</a>
+                          <a class="dropdown-item" href="/admin">Admin (Backend)</a>
+                    </div>
+                  </li>
+            {% endif %}
+
+          <li class='nav-item'>
+            <a href="#" class='nav-link'>Tee Times</a>
+          </li>
+{##}
+{#          <li class="nav-item dropdown">#}
+{#            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#              Tee Times#}
+{#            </a>#}
+{#            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">#}
+{#              <a class="dropdown-item" href="{% url 'all_teetimes' %}">All</a>#}
+{#            </div>#}
+{#          </li>#}
+
+          <li class='nav-item'>
+            <a href="#" class='nav-link'>Results</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Golfers
+            </a>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Indexes</a>
+              <a class="dropdown-item" href="#">Rounds</a>
+              <a class="dropdown-item" href="#">Leaderboard</a>
+              <a class="dropdown-item" href="#">Active / Inactive</a>
+            </div>
+          </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      {{ user.first_name }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Profile</a>
+                      <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                  </li>
+
+            {% else %}
+                <li class='nav-item'>
+                    <a href="{% url 'login' %}" class='nav-link'>Login</a>
+                </li>
+
+            {% endif %}
+
+        </ul>
+
+{#        <form class="form-inline ml-auto"  method="GET" role="search" action='{% url "resources" %}'>#}
+{#          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q" value='{{ request.GET.q }}'>#}
+{#          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#        </form>#}
+
+      </div>
+  </div>
+</nav>
