@@ -34,7 +34,7 @@ SECRET_KEY = 'i1*wd0a&x@3-!)9y^)s7b0zg2xmj32rmsxrpo72&v_%)m$$qz^'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['mcd-env.kpvhfrpmug.us-west-2.elasticbeanstalk.com',
+ALLOWED_HOSTS = ['mcd-env.sdtfwvgfdd.us-west-2.elasticbeanstalk.com',
                  'mycommercialdriver.golf',
                  'www.mycommercialdriver.com',
                  '127.0.0.1'
