@@ -93,23 +93,17 @@ if DB_DIR == '/Users/bclavin/sqlite/':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(DB_DIR, 'db.sqlite3'),
+            'NAME': os.path.join(DB_DIR, 'mcd.sqlite3'),
         }
     }
 else:
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.mysql',
-    #         'NAME': 'mcd',
-    #         'USER': 'mcd',
-    #         'PASSWORD': 'golferpw',
-    #         'HOST': 'bclavdbs.czutsyy3pvl6.us-west-1.rds.amazonaws.com',  # Or an IP Address that your DB is hosted on
-    #     }
-    # }
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(DB_DIR, 'db.sqlite3'),
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'mcd',
+            'USER': 'mcd',
+            'PASSWORD': 'mcdpw',
+            'HOST': 'bclavmcd.czqzvljcqmru.us-west-2.rds.amazonaws.com',  # Or an IP Address that your DB is hosted on
         }
     }
 
