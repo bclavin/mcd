@@ -12,13 +12,12 @@ MCD -
 {% block content %}
 
     <div class="p-3">
-        <h3 align="center">Welcome to My Commercial Driver!</h3>
             {% if user.groups.all.0.name == "drivers" %}
-                <h3 align="center">Welcome {{ user.first_name }}. You are currently logged in as a driver.</h3>
+                <h3 align="center">Welcome {{ user.username }}. You are currently logged in as a driver.</h3>
             {% elif user.groups.all.0.name == "operators" %}
-                <h3 align="center">Welcome {{ user.first_name }}. You are currently logged in as an operator.</h3>
+                <h3 align="center">Welcome {{ user.username }}. You are currently logged in as an operator.</h3>
             {% else %}
-                <h3 align="center">Welcome {{ user.first_name }}. You are currently logged in as an admin.</h3>
+                <h3 align="center">Welcome {{ user.username }}. You are currently logged in as an admin.</h3>
             {% endif %}
     </div>
 
