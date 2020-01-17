@@ -13,44 +13,57 @@
 
             {% if user.is_authenticated %}
 
-            {% if user.is_superuser %}
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Admin
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="/admin">Admin (Backend)</a>
-                    </div>
-                  </li>
-            {% endif %}
+                {% if user.is_superuser %}
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Admin
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="/admin">Admin (Backend)</a>
+                        </div>
+                      </li>
+                {% endif %}
 
-          <li class='nav-item'>
-            <a href="#" class='nav-link'>Operators</a>
-          </li>
-{##}
-{#          <li class="nav-item dropdown">#}
-{#            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#              Tee Times#}
-{#            </a>#}
-{#            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">#}
-{#              <a class="dropdown-item" href="{% url 'all_teetimes' %}">All</a>#}
-{#            </div>#}
-{#          </li>#}
+                {% if user.groups.all.0.name == "drivers" %}
+                      <li class='nav-item'>
+                        <a href="#" class='nav-link'>My Driving Skills</a>
+                      </li>
+                {% elif user.groups.all.0.name == "operators" %}
+                      <li class='nav-item'>
+                        <a href="#" class='nav-link'>My Fleet</a>
+                      </li>
+                {% else %}
 
-          <li class='nav-item'>
-            <a href="#" class='nav-link'>Drivers</a>
-          </li>
-{#          <li class="nav-item dropdown">#}
-{#            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-{#              Golfers#}
-{#            </a>#}
-{#            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">#}
-{#              <a class="dropdown-item" href="#">Indexes</a>#}
-{#              <a class="dropdown-item" href="#">Rounds</a>#}
-{#              <a class="dropdown-item" href="#">Leaderboard</a>#}
-{#              <a class="dropdown-item" href="#">Active / Inactive</a>#}
-{#            </div>#}
-{#          </li>#}
+                      <li class='nav-item'>
+                        <a href="#" class='nav-link'>Operators</a>
+                      </li>
+            {##}
+            {#          <li class="nav-item dropdown">#}
+            {#            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+            {#              Tee Times#}
+            {#            </a>#}
+            {#            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">#}
+            {#              <a class="dropdown-item" href="{% url 'all_teetimes' %}">All</a>#}
+            {#            </div>#}
+            {#          </li>#}
+
+                      <li class='nav-item'>
+                        <a href="#" class='nav-link'>Drivers</a>
+                      </li>
+            {#          <li class="nav-item dropdown">#}
+            {#            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+            {#              Golfers#}
+            {#            </a>#}
+            {#            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownMenuLink">#}
+            {#              <a class="dropdown-item" href="#">Indexes</a>#}
+            {#              <a class="dropdown-item" href="#">Rounds</a>#}
+            {#              <a class="dropdown-item" href="#">Leaderboard</a>#}
+            {#              <a class="dropdown-item" href="#">Active / Inactive</a>#}
+            {#            </div>#}
+            {#          </li>#}
+
+                {% endif %}
+
 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -157,6 +157,6 @@ EMAIL_HOST_USER = 'bclavin'
 EMAIL_HOST_PASSWORD = 's3ndgr!d*8*'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'sdp <noreply@sdp.golf>'
+DEFAULT_FROM_EMAIL = 'mcd <noreply@mycommercialdriver.com>'
 
 
